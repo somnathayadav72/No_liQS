@@ -13,7 +13,6 @@
     @apply font-heading;
   }
 }
-
 @layer utilities {
   .glassmorphism {
     @apply bg-white/85 backdrop-blur-md border border-white/30 shadow-sm;
