@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     apple: '/images/icon.jpg',
   },
 }
-
 export default function RootLayout({
   children,
 }: {
