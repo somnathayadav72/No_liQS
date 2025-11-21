@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body text-gray-800 bg-off-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .glassmorphism {
+    @apply bg-white/85 backdrop-blur-md border border-white/30 shadow-sm;
+  }
+  
+  .pill-button {
+    @apply rounded-full px-6 py-3 font-medium transition-all duration-300 hover:scale-105 font-semibold;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Removed animated gradient mesh for performance */
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #FF6B9D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 3D Card Effect - Optimized */
+  .card-3d {
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+
+  .card-3d:hover {
+    transform: scale(1.02);
+  }
+
+  /* Laser Animation - Performance Optimized */
+  .laser-beam {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(59, 130, 246, 0.8),
+      rgba(139, 92, 246, 0.8),
+      rgba(255, 107, 157, 0.8),
+      transparent
+    );
+    box-shadow: 
+      0 0 10px rgba(59, 130, 246, 0.6),
+      0 0 20px rgba(139, 92, 246, 0.4),
+      0 0 30px rgba(255, 107, 157, 0.3);
+    animation: laser-sweep 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+    transform: translateZ(0);
+  }
+
+  @keyframes laser-sweep {
+    0% {
+      left: -100%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+  }
+
+  /* Laser Container */
+  .laser-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .laser-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(59, 130, 246, 0.6),
+      rgba(139, 92, 246, 0.6),
+      rgba(255, 107, 157, 0.6),
+      transparent
+    );
+    box-shadow: 
+      0 0 8px rgba(59, 130, 246, 0.5),
+      0 0 15px rgba(139, 92, 246, 0.3);
+    animation: laser-sweep 10s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+    transform: translateZ(0);
+    will-change: left;
+  }
+}
+
